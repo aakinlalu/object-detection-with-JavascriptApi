@@ -1,0 +1,6 @@
+{
+  "appId": "com.clearxp.app",
+  "appName": "object-detection",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

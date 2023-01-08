@@ -1,0 +1,30 @@
+{
+  "name": "object-detection",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "cross-env NODE_ENV=development parcel index.html --no-hmr --open",
+    "build": "cross-env NODE_ENV=production parcel build --no-scope-hoist index.html --public-url ./",
+    "link-local": "yalc link"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@capacitor/cli": "^4.6.1",
+    "buffer": "^5.7.1",
+    "cross-env": "^7.0.3",
+    "parcel": "^2.8.2",
+    "process": "^0.11.10",
+    "yalc": "^1.0.0-pre.53"
+  },
+  "dependencies": {
+    "@capacitor/android": "^4.6.1",
+    "@capacitor/core": "^4.6.1",
+    "@capacitor/ios": "^4.6.1",
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow/tfjs": "^4.2.0",
+    "@tensorflow/tfjs-backend-cpu": "^4.2.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.2.0"
+  }
+}
