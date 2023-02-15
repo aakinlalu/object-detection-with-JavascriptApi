@@ -10,9 +10,4 @@ npm install
 ```shell
 npx parcel index.html
 ```
-**3. Run on IOS Simulator**
-```shell
-npx cap open ios 
-```
 
-***Note:  navigator.mediaDevices.getUserMedia() does not tend to work on ios***
