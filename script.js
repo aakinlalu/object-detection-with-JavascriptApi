@@ -8,28 +8,28 @@ const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
 const enableWebcamButton = document.getElementById('webcamButton');
 
-const classes = {
-  'person': "SWP: Face Masks",
-  'car': "Australia Drivers Licence",
-  'motorcycle': "Australia Drivers Licence",
-  'bus': "Australia Drivers Licence",
-  'boat': "Australia Drivers Licence",
-  'fire hydrant': "Fire Warden / CEXP:Fire Safety",
-  'bottle': "Sustainability: Recycling the right way",
-  'wine glass': "Sustainability: Recycling the right way",
-  'cup': "Sustainability: Recycling the right way",
-  'fork': "Sustainability: Recycling the right way",
-  'knife': "Sustainability: Recycling the right way",
-  'spoon': "Sustainability: Recycling the right way",
-  'bowl': "Sustainability: Recycling the right way",
-  'banana': "Banana",
-  'apple': "Apple",
-  'orange': "Orange",
-  'broccoli': "Broccoli",
-  'carrot': "Carrot",
-  'laptop': "Cole Secure Password / Coles Information Protection",
-  'mouse': "Cole Secure Password / Coles Information Protection",
-}
+// const classes = {
+//   'person': "SWP: Face Masks",
+//   'car': "Australia Drivers Licence",
+//   'motorcycle': "Australia Drivers Licence",
+//   'bus': "Australia Drivers Licence",
+//   'boat': "Australia Drivers Licence",
+//   'fire hydrant': "Fire Warden / CEXP:Fire Safety",
+//   'bottle': "Sustainability: Recycling the right way",
+//   'wine glass': "Sustainability: Recycling the right way",
+//   'cup': "Sustainability: Recycling the right way",
+//   'fork': "Sustainability: Recycling the right way",
+//   'knife': "Sustainability: Recycling the right way",
+//   'spoon': "Sustainability: Recycling the right way",
+//   'bowl': "Sustainability: Recycling the right way",
+//   'banana': "Banana",
+//   'apple': "Apple",
+//   'orange': "Orange",
+//   'broccoli': "Broccoli",
+//   'carrot': "Carrot",
+//   'laptop': "Cole Secure Password / Coles Information Protection",
+//   'mouse': "Cole Secure Password / Coles Information Protection",
+// }
 
 // Store the resulting model in the global scope of our app.
 var model = undefined;
@@ -100,10 +100,11 @@ function predictWebcam() {
     // they have a high confidence score.
     for (let n = 0; n < predictions.length; n++) {
       // If we are over 66% sure we are sure we classified it right, draw it!
-      if (Object(classes).hasOwnProperty(predictions[n].class)) {
+      // if (Object(classes).hasOwnProperty(predictions[n].class)) {
         if (predictions[n].score > 0.66) {
         const p = document.createElement('p');
-        p.innerText = classes[predictions[n].class]  + ' - with ' 
+        //use classes to filter out the classes we want to display. But not use
+        p.innerText = predictions[n].class  + ' - with ' 
             + Math.round(parseFloat(predictions[n].score) * 100) 
             + '% confidence.';
         p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
@@ -122,7 +123,7 @@ function predictWebcam() {
         children.push(highlighter);
         children.push(p);
         }
-      }
+      // }
     }
     
     // Call this function again to keep predicting when the browser is ready.
